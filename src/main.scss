@@ -1,0 +1,63 @@
+@import "config";
+
+body {
+    font-family: "Oxygen", sans-serif;
+    background-color: $dark-color;
+}
+.main {
+    .input-task {
+        max-width: 500px;
+        margin: auto;
+        margin-bottom: $m-xlarg;
+        span {
+            opacity: 0;
+            position: relative;
+            top: 40px;
+            color: $dark-color;
+            font-size: $alert-font;
+            background-color: $secoundary-color;
+            &::before {
+                content: "";
+                position: absolute;
+                border: 10px solid;
+                border-color: $secoundary-color transparent transparent transparent;
+                bottom: -20px;
+            }
+            &.alert {
+                opacity: 1;
+            }
+        }
+
+        input {
+            margin-top: $m-xlarg;
+            margin-bottom: $m-small;
+            width: 100%;
+            height: 2.5rem;
+            border: none;
+            background: transparent;
+            border-bottom: 3px $primary-color solid;
+            color: $light-color;
+            font-size: $larg-font;
+            &::placeholder {
+                color: $light-color;
+                font-size: $larg-font;
+            }
+            &:focus-visible {
+                outline: none;
+            }
+        }
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+    .deal-with-tasks {
+        max-width: 500px;
+        margin: auto;
+        .task-complet {
+            width: 269px;
+        }
+    }
+}
+
+@import "mobile";

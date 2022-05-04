@@ -1,0 +1,24 @@
+// wide screen
+@include mediaXl {
+}
+
+// disktops and laptops screen
+@include mediaLg {
+}
+
+// tablets screen
+@include mediaMd {
+}
+
+// phones screen
+@include mediaSm {
+    .input-task {
+        input {
+            font-size: $mid-font !important;
+            &::placeholder {
+                color: $light-color;
+                font-size: $mid-font !important;
+            }
+        }
+    }
+}

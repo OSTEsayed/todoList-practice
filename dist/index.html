@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- css file -->
+    <link rel="stylesheet" href="/dist/css/main.css" />
+    <!-- font link Oxygen-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;700;800&family=Exo:wght@400;500;600&family=Oxygen:wght@300;400;700&family=Roboto:wght@100;300;400;500;700&family=Work+Sans:wght@200;300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <!-- font link -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <title>Todo List</title>
+  </head>
+
+  <body>
+    <script src="/dist/main.js"></script>
+    <header class="h1 center">
+      <p>ToDo List</p>
+    </header>
+    <main class="main">
+      <div class="input-task">
+        <span class="" id="alrt"
+          >you need to enter somthing before you click add button</span
+        >
+        <input
+          type="text"
+          class="input"
+          id="input"
+          placeholder="add something to do today"
+        />
+        <div class="buttons">
+          <div class="btn" id="add-btn">ADD</div>
+          <div class="btn-clear" id="clear-btn">clear all</div>
+        </div>
+      </div>
+      <div class="deal-with-tasks">
+        <div class="tasks">
+          <p class="h2">today tasks :</p>
+          <!-- <p class="text-style">nothing to do yet... !</p> -->
+          <ul id="tasks">
+            <li class="tasks-todo">
+              <p class="text-style">my first task</p>
+              <i class="ri-delete-bin-2-line primary-icon"></i>
+            </li>
+          </ul>
+        </div>
+        <div class="complete-tasks">
+          <p class="h2 task-complet">completed tasks</p>
+          <ul id="complete-tasks">
+            <li class="end-todo">
+              <p class="text-style p">my secound task</p>
+              <i class="ri-arrow-go-back-line secoundary-icon"></i>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </main>
+    <footer></footer>
+    <!-- js file -->
+    <script src="/dist/script.js"></script>
+  </body>
+</html>

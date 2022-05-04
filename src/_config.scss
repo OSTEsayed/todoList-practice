@@ -1,0 +1,189 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+@mixin ease_out {
+    transition: all 0.3s ease-out;
+}
+
+// variable
+$primary-color: #457b9d;
+$secoundary-color: #a8dadc;
+
+$danger-color: #e63946;
+
+$dark-color: #1d3557;
+$light-color: #f1faee;
+
+// font-sizing
+$xlarg-font: 3rem;
+$larg-font: 2rem;
+$mid-font: 1.5rem;
+$normal-font: 1rem;
+$alert-font: 0.8rem;
+$small-font: 0.5rem;
+
+// padding
+$p-xlarg: 3rem;
+$p-larg: 2rem;
+$p-mid: 1rem;
+$p-small: 0.5rem;
+
+// margin
+$m-xlarg: 3rem;
+$m-larg: 2rem;
+$m-mid: 1rem;
+$m-small: 0.5rem;
+
+// delet icon
+.primary-icon {
+    color: $danger-color;
+    cursor: pointer;
+    &:hover {
+        color: #9b2226;
+    }
+}
+// back icon
+.secoundary-icon {
+    color: $secoundary-color;
+    cursor: pointer;
+    &:hover {
+        color: #fca311;
+    }
+}
+
+// lists tyle
+ul {
+    list-style: none;
+    li {
+        @include ease-out;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: $m-small;
+        &:hover {
+            background-color: $primary-color;
+            cursor: pointer;
+            // p {
+            //     color: $primary-color;
+            // }
+        }
+    }
+}
+
+// primary button
+.btn {
+    cursor: pointer;
+    border: none;
+    text-align: center;
+    width: 100px;
+    padding: $p-small;
+    color: $light-color;
+    background-color: $primary-color;
+    border-radius: 20px;
+    @include ease-out;
+    &:hover {
+        background-color: $secoundary-color;
+        color: $primary-color;
+    }
+}
+
+// secoundary button
+.btn-sec {
+    cursor: pointer;
+    border: none;
+    text-align: center;
+    width: 100px;
+    padding: $p-small;
+    color: $dark-color;
+    background-color: $secoundary-color;
+    border-radius: 20px;
+    @include ease-out;
+    &:hover {
+        background-color: $primary-color;
+        color: $light-color;
+    }
+}
+
+// clear button
+.btn-clear {
+    cursor: pointer;
+    border: none;
+    text-align: center;
+    width: 100px;
+    padding: $p-small;
+    color: $dark-color;
+    background-color: $danger-color;
+    border-radius: 20px;
+    @include ease-out;
+    &:hover {
+        color: $light-color;
+    }
+}
+
+// center the text
+.center {
+    text-align: center;
+}
+
+// heading
+.h1 {
+    letter-spacing: 0.25rem;
+    font-size: $xlarg-font;
+    color: $light-color;
+    font-weight: bold;
+}
+
+.h2 {
+    letter-spacing: 0.25rem;
+    font-size: $mid-font;
+    color: $light-color;
+    font-weight: bold;
+    border-bottom: 3px solid $primary-color;
+    padding-bottom: 0.5rem;
+    width: 195px;
+    margin-bottom: 32px;
+}
+
+// text style
+.text-style {
+    letter-spacing: 0.125rem;
+    color: $light-color;
+    font-size: $normal-font;
+    font-weight: 300;
+}
+
+// set text color
+@function set-text-color($color) {
+    @if (lightness($color) > 50) {
+        @return $primary-color;
+    } @else {
+        @return $light-color;
+    }
+}
+
+// media qury mexin
+@mixin mediaSm {
+    @media screen and (max-width: 500px) {
+        @content;
+    }
+}
+
+@mixin mediaMd {
+    @media screen and (max-width: 770px) {
+        @content;
+    }
+}
+
+@mixin mediaLg {
+    @media screen and (min-width: 771px) and (max-width: 1170px) {
+        @content;
+    }
+}
+
+@mixin mediaXl {
+    @media screen and (min-width: 1171px) {
+        @content;
+    }
+}
