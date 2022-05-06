@@ -1,14 +1,18 @@
 
 
 document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll(".main")[0].addEventListener(onchange,()=>{
-        liTasks = document.querySelectorAll('.tasks-todo') // li element for the tasks
-        liendTask = document.querySelectorAll('.end-todo') // li element for the completed tasks
-        for(let i = 0; i < liTasks.length; i++)
-        {
-          console.log(liTasks[i]);
-        }
-       });
+ //Function for optimisation the code for li task eventadds(doesn't work for now)
+    // document.querySelectorAll(".main")[0].addEventListener(onchange,()=>{
+        // liTasks = document.querySelectorAll('.tasks-todo') // li element for the tasks
+        // liendTask = document.querySelectorAll('.end-todo') // li element for the completed tasks
+      
+        // liTasks.forEach(task=>{
+        //     task.addEventListener('click',endtheTask)       
+        // })
+        // liendTask.forEach(task=>{
+        //     task.addEventListener('click',resetTask)       
+        // })
+    //    });
     // get all the html elemnts
     let inputElm = document.getElementById('input') //input feild
     let ulTasks = document.getElementById('tasks') // ul element 
@@ -32,7 +36,6 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('alrt').classList.remove('alert') //remove the alert in input is not empty
         }
         val = inputElm.value
-        console.log(inputElm.value)
     })
     
     // on click at add will add the task you inputed
@@ -66,15 +69,17 @@ document.addEventListener('DOMContentLoaded', () => {
             li.appendChild(i)
             ulTasks.appendChild(li)
             //arr.push(inputElm.value)
-            console.log(arr)
             liTasks = document.querySelectorAll('.tasks-todo') // li element for the tasks
             liendTask = document.querySelectorAll('.end-todo') // li element for the completed tasks
           
             liTasks.forEach(task=>{
-                task.addEventListener('click',endtheTask)       
-            })
+                let children = task.childNodes;
+
+                children[0].addEventListener('click',endtheTask)   
+                console.log(children[0])    
+        })
             liendTask.forEach(task=>{
-                task.addEventListener('click',resetTask)       
+                task.addEventListener('click',resetTask)            
             })
         
         }
@@ -85,18 +90,21 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.target.classList.contains('primary-icon')){
         e.target.parentNode.remove()
     }})
+    
 
     // //remove frome today tasks and add to completed tasks
     liTasks = document.querySelectorAll('.tasks-todo') // li element for the tasks
     liendTask = document.querySelectorAll('.end-todo') // li element for the completed tasks
   
     liTasks.forEach(task=>{
-        task.addEventListener('click',endtheTask)       
+        let children = task.childNodes;
+
+        children[1].addEventListener('click',endtheTask)   
     })
 
     function endtheTask(){
             //mouving the task froum today task into completed tasks 
-                this.remove()
+                this.parentNode.remove()
                 let li = document.createElement("li")
                 li.className = 'end-todo'
                 let p = document.createElement("p")
@@ -113,15 +121,18 @@ document.addEventListener('DOMContentLoaded', () => {
             liendTask = document.querySelectorAll('.end-todo') // li element for the completed tasks
           
             liTasks.forEach(task=>{
-                task.addEventListener('click',endtheTask)       
-            })
+                let children = task.childNodes;
+
+                children[0].addEventListener('click',endtheTask)       
+        })
             liendTask.forEach(task=>{
-                task.addEventListener('click',resetTask)       
-            })   
+        task.addEventListener('click',resetTask)            
+                
+})   
     }
     // //remove frome completed tasks and add to today tasks
     liendTask.forEach(task=>{
-        task.addEventListener('click',resetTask)       
+        task.addEventListener('click',resetTask)            
     })
 
     function resetTask(){
@@ -142,10 +153,13 @@ document.addEventListener('DOMContentLoaded', () => {
             liendTask = document.querySelectorAll('.end-todo') // li element for the completed tasks
           
             liTasks.forEach(task=>{
-                task.addEventListener('click',endtheTask)       
-            })
+                let children = task.childNodes;
+
+                children[0].addEventListener('click',endtheTask)       
+           })
             liendTask.forEach(task=>{
-                task.addEventListener('click',resetTask)       
+                task.addEventListener('click',resetTask)            
+
             })
     }
     })
